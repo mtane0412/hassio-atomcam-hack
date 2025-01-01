@@ -103,7 +103,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
         "ini": ini,
     }
 
-    await hass.config_entries.async_setup_platforms(entry, _PLATFORMS)
+    await hass.config_entries.async_forward_entry_setups(entry, _PLATFORMS)
     return True
 
 
