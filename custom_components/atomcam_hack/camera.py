@@ -1,6 +1,6 @@
 from typing import Callable
 
-from homeassistant.components.camera import SUPPORT_STREAM, Camera
+from homeassistant.components.camera import Camera, CameraEntityFeature
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_HOST
 from homeassistant.core import HomeAssistant
@@ -36,7 +36,7 @@ class AtomCam(CoordinatorEntity[DataUpdateCoordinator[Ini]], Camera):
     @property
     def supported_features(self):
         if self.is_streaming:
-            return SUPPORT_STREAM
+            return CameraEntityFeature.STREAM
         return 0
 
     async def async_camera_image(self, width: int = None, height: int = None):
