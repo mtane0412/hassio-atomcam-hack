@@ -37,7 +37,7 @@ class AtomCam(CoordinatorEntity[DataUpdateCoordinator[Ini]], Camera):
     def supported_features(self):
         if self.is_streaming:
             return CameraEntityFeature.STREAM
-        return 0
+        return CameraEntityFeature(0)
 
     async def async_camera_image(self, width: int = None, height: int = None):
         session = async_get_clientsession(self.hass)
