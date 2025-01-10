@@ -41,7 +41,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_e
             update_method=_get_latest,
         )
         hass.data[DOMAIN][entry.entry_id]["latest"] = latest
-        hass.async_create_task(latest.async_refresh)
+        hass.async_create_task(latest.async_refresh())
 
     async_add_entities([
         HackUpdate(hass, entry),
